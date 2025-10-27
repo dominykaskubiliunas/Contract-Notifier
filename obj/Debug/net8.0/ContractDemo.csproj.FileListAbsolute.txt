@@ -1,0 +1,14 @@
+C:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\ContractDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\ContractDemo.AssemblyInfoInputs.cache
+C:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\ContractDemo.AssemblyInfo.cs
+C:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\ContractDemo.csproj.CoreCompileInputs.cache
+C:\Users\20223931\Desktop\Work\C# Project\bin\Debug\net8.0\ContractDemo.exe
+c:\Users\20223931\Desktop\Work\C# Project\bin\Debug\net8.0\ContractDemo.deps.json
+c:\Users\20223931\Desktop\Work\C# Project\bin\Debug\net8.0\ContractDemo.runtimeconfig.json
+C:\Users\20223931\Desktop\Work\C# Project\bin\Debug\net8.0\ContractDemo.dll
+C:\Users\20223931\Desktop\Work\C# Project\bin\Debug\net8.0\ContractDemo.pdb
+C:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\ContractDemo.dll
+C:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\refint\ContractDemo.dll
+C:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\ContractDemo.pdb
+c:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\ContractDemo.genruntimeconfig.cache
+c:\Users\20223931\Desktop\Work\C# Project\obj\Debug\net8.0\ref\ContractDemo.dll
