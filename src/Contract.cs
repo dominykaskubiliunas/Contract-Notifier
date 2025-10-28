@@ -1,64 +1,70 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
 public class Contract
 {
-    private readonly Dictionary<string, object> data;
 
-    public Contract(Dictionary<string, object> data)
-    {
-        this.data = data;
-    }
+    public int id { get; set; }
+    public string software_name { get; set; } = "Unknown Software Name";
+    public string owner { get; set; } = "Unknown Owner";
+    public string organization { get; set; } = "Unknown Organization";
+    public decimal annual_cost_eur { get; set; }
+    public string renewal_date { get; set; } = string.Empty;
+    public int days_to_expiry { get; set; }
+    public string prevNotification { get; set; } = string.Empty;
 
     public int ComputeDaysToExpiry(string currentDate)
     {
+        if (string.IsNullOrEmpty(renewal_date))
+        {
+            return int.MaxValue;
+        }
+
         DateTime current = DateTime.ParseExact(currentDate, Constants.DATE_FORMAT, null);
-        DateTime renewal = DateTime.ParseExact(data[Constants.KEY_RENEWAL_DATE].ToString(), Constants.DATE_FORMAT, null);
-        int days = (renewal - current).Days;
-        data[Constants.KEY_DAYS_TO_EXPIRY] = days;
-        return days;
+        DateTime renewal = DateTime.ParseExact(renewal_date, Constants.DATE_FORMAT, null);
+        days_to_expiry = (renewal - current).Days;
+        return days_to_expiry;
     }
 
     public void SetPreviousNotification(string notification)
     {
-        data[Constants.KEY_PREVIOUS_NOTIFICATION] = notification;
+        prevNotification = notification;
     }
 
     public string GetId()
     {
-        return ((JsonElement)data[Constants.KEY_ID]).GetInt32().ToString();
+        return id.ToString();
     }
 
     public int GetAnnualCost()
     {
-        return (int)((JsonElement)data[Constants.KEY_ANNUAL_COST]).GetSingle();
+        return (int)annual_cost_eur;
     }
 
     public string GetRenewalDate()
     {
-        return ((JsonElement)data[Constants.KEY_RENEWAL_DATE]).GetString();
+        return renewal_date;
     }
 
     public string GetSoftwareName()
     {
-        return ((JsonElement)data[Constants.KEY_SOFTWARE_NAME]).GetString();
+        return software_name;
     }
 
     public string GetOrganization()
     {
-        return ((JsonElement)data[Constants.KEY_ORGANIZATION]).GetString();
+        return organization;
     }
 
     public int GetDaysToExpiry()
     {
-        return data.ContainsKey(Constants.KEY_DAYS_TO_EXPIRY) ? Convert.ToInt32(data[Constants.KEY_DAYS_TO_EXPIRY]) : 0;
+        return days_to_expiry;
     }
 
     public string GetPreviousNotification()
     {
-        return data.ContainsKey(Constants.KEY_PREVIOUS_NOTIFICATION)
-            ? data[Constants.KEY_PREVIOUS_NOTIFICATION]?.ToString()
-            : null;
+        return prevNotification;
     }
 }

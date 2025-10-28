@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\ContractDemo.csproj": {}
+    "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\Contract-Notifier\\ContractDemo.csproj": {}
   },
   "projects": {
-    "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\ContractDemo.csproj": {
+    "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\Contract-Notifier\\ContractDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\ContractDemo.csproj",
+        "projectUniqueName": "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\Contract-Notifier\\ContractDemo.csproj",
         "projectName": "ContractDemo",
-        "projectPath": "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\ContractDemo.csproj",
+        "projectPath": "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\Contract-Notifier\\ContractDemo.csproj",
         "packagesPath": "C:\\Users\\20223931\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\obj\\",
+        "outputPath": "c:\\Users\\20223931\\Desktop\\Work\\C# Project\\Contract-Notifier\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\20223931\\AppData\\Roaming\\NuGet\\NuGet.Config"

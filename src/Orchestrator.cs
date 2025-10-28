@@ -6,7 +6,7 @@ using System.Text.Json;
 public class Orchestrator
 {
     private readonly Dictionary<string, object> _config;
-    private readonly List<Dictionary<string, object>> _contracts;
+    private readonly List<Contract> _contracts;
 
     private string _currentDatetime = "";
     private DecisionRules _decisionRules;
@@ -21,9 +21,11 @@ public class Orchestrator
             ?? new Dictionary<string, object>();
                 
         var contractsJson = File.ReadAllText(contractsInputPath);
-        _contracts = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(contractsJson)
-                ?? new List<Dictionary<string, object>>();
-            
+        //_contracts = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(contractsJson)
+        //        ?? new List<Dictionary<string, object>>();
+        
+        _contracts = JsonSerializer.Deserialize<List<Contract>>(contractsJson) ?? new List<Contract>();
+
         var rules = GetFromConfig<List<Dictionary<string, object>>>(_config, Constants.KEY_RULES)
                     ?? new List<Dictionary<string, object>>();
         var priority = GetFromConfig<List<string>>(_config, Constants.KEY_PRIORITY)
@@ -51,9 +53,13 @@ public class Orchestrator
 
     public void CheckContracts()
     {
-        foreach (var contractData in _contracts)
+        if (_contracts == null || _contracts.Count == 0)
         {
-            var currentContract = new Contract(contractData);
+            Console.WriteLine("No contracts found");
+            return;
+        }
+        foreach (Contract currentContract in _contracts)
+        {
             currentContract.ComputeDaysToExpiry(_currentDatetime);
 
             var (isNotified, reason) = Evaluator.EvaluateContract(

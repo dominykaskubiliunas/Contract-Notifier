@@ -10,7 +10,7 @@ class Program
             Constants.CONTRACTS_FILE_PATH
         );
 
-        Console.WriteLine("Internal tool for expiring contracts renewal.");
+        Console.WriteLine("Tool for expiring contracts renewal.");
 
         while (true)
         {
