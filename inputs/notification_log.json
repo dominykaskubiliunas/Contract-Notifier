@@ -1,1 +1,78 @@
-{}
+{
+  "1": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "3": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "5": {
+    "notified_on": "2025-10-25",
+    "reason": "Upcoming"
+  },
+  "7": {
+    "notified_on": "2025-10-25",
+    "reason": "Upcoming"
+  },
+  "8": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "9": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "12": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "13": {
+    "notified_on": "2025-10-25",
+    "reason": "Upcoming"
+  },
+  "14": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "15": {
+    "notified_on": "2025-10-25",
+    "reason": "Upcoming"
+  },
+  "16": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "18": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "20": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "21": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "23": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "24": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "27": {
+    "notified_on": "2025-10-25",
+    "reason": "Upcoming"
+  },
+  "28": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  },
+  "29": {
+    "notified_on": "2025-10-25",
+    "reason": "High-Cost"
+  }
+}

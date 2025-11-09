@@ -1,8 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Json;
-
+/// <summary>
+/// Model for a single contract record as loaded from contracts.json.
+/// Properties map to the JSON fields (id, software_name, owner, organization,
+/// annual_cost_eur, renewal_date, etc.). This class is intended to be
+/// populated by deserializing contracts.json and provides helper methods to:
+/// - compute days until renewal (ComputeDaysToExpiry),
+/// - get commonly used fields (GetId, GetAnnualCost, GetDaysToExpiry, ...),
+/// - and store the previous notification reason (SetPreviousNotification/GetPreviousNotification).
+/// </summary>
 public class Contract
 {
 

@@ -1,6 +1,8 @@
-using System;
-using System.Collections.Generic;
-
+/// <summary>
+/// Decide whether a Contract should trigger a notification by combining decision rules and the notification log.
+/// Calls NotificationCheck to populate any previous reason on the Contract and compares priority to determine
+/// if a new notification is required.
+/// </summary>
 public static class Evaluator
 {
     public static bool NotificationCheck(
@@ -43,13 +45,13 @@ public static class Evaluator
             return (true, topReason);
 
         int prevIdx = decisionRules.Priority.IndexOf(prev);
-        int newIdx  = decisionRules.Priority.IndexOf(topReason);
+        int newIdx = decisionRules.Priority.IndexOf(topReason);
 
         if (prevIdx < 0) prevIdx = int.MaxValue;
-        if (newIdx  < 0) newIdx  = int.MaxValue;
+        if (newIdx < 0) newIdx = int.MaxValue;
 
         if (prevIdx > newIdx)
-            return (true, topReason);  
+            return (true, topReason);
         else
             return (false, Constants.ALREADY_NOTIFIED);
     }
