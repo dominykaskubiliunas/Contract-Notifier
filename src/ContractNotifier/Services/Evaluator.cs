@@ -24,7 +24,7 @@ public static class Evaluator
 
     public static (bool ShouldNotify, string Reason) EvaluateContract(
         Contract contract,
-        DecisionRules decisionRules,
+        Config decisionRules,
         Dictionary<string, Dictionary<string, string>> notificationLog)
     {
         var topReason = decisionRules.FindTopReason(contract);

@@ -9,7 +9,7 @@ public class Orchestrator
     private readonly List<Contract> _contracts;
 
     private string _currentDatetime = "";
-    private DecisionRules _decisionRules;
+    private Config _decisionRules;
     private Dictionary<string, Dictionary<string, string>> _notifications =
         new Dictionary<string, Dictionary<string, string>>();
     private readonly List<string> _currentNotifications = new List<string>();
@@ -31,7 +31,7 @@ public class Orchestrator
         var priority = GetFromConfig<List<string>>(_config, Constants.KEY_PRIORITY)
                        ?? new List<string>();
 
-        _decisionRules = new DecisionRules(rules, priority);
+        _decisionRules = new Config(rules, priority);
     }
 
     public void AddCurrentDatetimeStr(string currentDatetimeStr)

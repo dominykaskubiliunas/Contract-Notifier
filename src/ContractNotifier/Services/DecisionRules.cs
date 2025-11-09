@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 
-public class DecisionRules
+public class Config
 {
     public List<string> Priority { get; private set; }
     public List<Dictionary<string, object>> Rules { get; private set; }
 
-    public DecisionRules(List<Dictionary<string, object>> rules, List<string> priority)
+    public Config(List<Dictionary<string, object>> rules, List<string> priority)
     {
         Priority = priority;
         Rules = SortRulesByPriority(rules);
