@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public static class Evaluator
 {
     public static bool NotificationCheck(
-        Dictionary<string, Dictionary<string, string>> notificationLog,
+        Dictionary<string, NotificationEntry> notificationLog,
         Contract contract)
     {
         if (notificationLog == null || notificationLog.Count == 0)
@@ -14,18 +14,18 @@ public static class Evaluator
         if (!notificationLog.ContainsKey(id))
             return false;
 
-        if (notificationLog[id] != null &&
-            notificationLog[id].TryGetValue(Constants.KEY_REASON, out var prevReason))
+        if (notificationLog[id] != null)
         {
+            var prevReason = notificationLog[id].reason;
             contract.SetPreviousNotification(prevReason);
         }
         return true;
     }
 
-    public static (bool ShouldNotify, string Reason) EvaluateContract(
+    public static (bool shouldNotify, string Reason) EvaluateContract(
         Contract contract,
         Config decisionRules,
-        Dictionary<string, Dictionary<string, string>> notificationLog)
+        Dictionary<string, NotificationEntry> notificationLog)
     {
         var topReason = decisionRules.FindTopReason(contract);
 

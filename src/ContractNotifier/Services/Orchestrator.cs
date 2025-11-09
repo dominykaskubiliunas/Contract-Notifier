@@ -10,8 +10,8 @@ public class Orchestrator
 
     private string _currentDatetime = "";
     private Config _decisionRules;
-    private Dictionary<string, Dictionary<string, string>> _notifications =
-        new Dictionary<string, Dictionary<string, string>>();
+    private Dictionary<string, NotificationEntry> _notifications =
+        new Dictionary<string, NotificationEntry>();
     private readonly List<string> _currentNotifications = new List<string>();
 
     public Orchestrator(string configInputPath, string contractsInputPath)
@@ -20,10 +20,7 @@ public class Orchestrator
         _config = JsonSerializer.Deserialize<Dictionary<string, object>>(json)
             ?? new Dictionary<string, object>();
                 
-        var contractsJson = File.ReadAllText(contractsInputPath);
-        //_contracts = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(contractsJson)
-        //        ?? new List<Dictionary<string, object>>();
-        
+        var contractsJson = File.ReadAllText(contractsInputPath);        
         _contracts = JsonSerializer.Deserialize<List<Contract>>(contractsJson) ?? new List<Contract>();
 
         var rules = GetFromConfig<List<Dictionary<string, object>>>(_config, Constants.KEY_RULES)
@@ -41,9 +38,8 @@ public class Orchestrator
 
     public void LoadNotifications(string notificationFilePath = Constants.NOTIFICATION_LOG_FILE_PATH)
     {
-        var json_notifications = File.ReadAllText(notificationFilePath);
-        _notifications = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(json_notifications)
-                    ?? new Dictionary<string, Dictionary<string, string>>();
+        var jsonNotifications = File.ReadAllText(notificationFilePath);
+        _notifications = JsonSerializer.Deserialize<Dictionary<string, NotificationEntry>>(jsonNotifications) ?? new Dictionary<string, NotificationEntry>();
     }
 
     public void ClearCurrentNotifications()
@@ -67,8 +63,7 @@ public class Orchestrator
 
             if (isNotified)
             {
-                _notifications[currentContract.GetId()] =
-                    Serializer.NotificationLogEntry(_currentDatetime, reason);
+                _notifications[currentContract.GetId()] = new NotificationEntry { notified_on = _currentDatetime, reason = reason};
 
                 var output = Serializer.NotificationOutput(currentContract, reason).ToString();
                 _currentNotifications.Add(output);
